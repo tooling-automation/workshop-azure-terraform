@@ -31,6 +31,10 @@ Example:
     - storageschee805
 ```
 
+Voor deze workshop is er een kant en klare WSL image gemaakt die je kan gebruiken om de workshop te volgen, je mag natuurlijk ook je eigen omgeving gebruiken. Via onderstaade link kun je de image downloaden en installeren op je werkplek pc.
+
+Download: [wsl2-dev-iamge](https://wslimage.blob.core.windows.net/image/wsl2-dev-image.7z)
+
 ## Start tutorial
 Voordat je gaat starten is het goed om te weten dat we de laatste stap van de tutorial 'Store remote state' niet zullen volgen. Hiervoor in de plaats gaan we gebruik maken van een Azure blob storage container, wat hieronder staat beschreven.
 
