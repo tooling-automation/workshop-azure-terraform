@@ -57,7 +57,7 @@ Tip: bekijk de resource examples op de Registry pagina van [hashicorp/azurerm](h
 ### Stap 2
 Als je het storage account heb aangemaakt voeg dan onderstaande remote state configuratie toe aan je main.tf file.
 
-```hcl
+```HCL
 terraform {
   backend "azurerm" {
     resource_group_name  = "training-rg-<cura_inlog_naam>"
