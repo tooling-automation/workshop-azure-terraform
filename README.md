@@ -1,9 +1,9 @@
 # Azure workshop Terraform basic
 
 ## Introduction
-Het doel van deze workshop is om je een eerste eravring op te laten doen met het werken met Terraform, we maken hiervoor gebruik van de standaard 'Azure-get-started' tutorial van HashiCorp. Vanuit de tutorial ga je zelfstandig met terraform aan de slag waarbij je azure resources zult gaan aanmaken, wijzigen en verwijderen. 
+Het doel van deze workshop is om je een eerste ervaring op te laten doen met het werken met Terraform, we maken hiervoor gebruik van de standaard 'Azure-get-started' tutorial van HashiCorp. Vanuit de tutorial ga je zelfstandig met terraform aan de slag waarbij je azure resources zult gaan aanmaken, wijzigen en verwijderen. 
 
-Voor deze training hebben we een aparte subscription aangemaakt binnen onze Azure Tenant KPN B.V. de gegevens van deze subscription staan hieronder:
+Voor deze training hebben we een aparte subscription aangemaakt binnen onze Azure Tenant 'KPN B.V.' de gegevens van deze subscription staan hieronder, dit heb je straks nodig voor het aanloggen op azure via de azure cli.
 
 ```json
 {
@@ -34,20 +34,25 @@ Example:
 ## Start tutorial
 Voordat je gaat starten is het goed om te weten dat we de laatste stap van de tutorial 'Store remote state' niet zullen volgen. Hiervoor in de plaats gaan we gebruik maken van een Azure blob storage container, wat hieronder staat beschreven.
 
-start nu eerst met de tutorial op de site van hashicorp: [azure-get-started](https://developer.hashicorp.com/terraform/tutorials/azure-get-started)
+Je kunt nu starten met de tutorial op de site van hashicorp: [azure-get-started](https://developer.hashicorp.com/terraform/tutorials/azure-get-started)
 
 Als je bent aangekomen bij het laatste hoofdstuk over remote state vervolg dan de opdracht hieronder. Veel plezier.
 
 
 ## Terraform remote state on Azure blob storage
-Tot nu toe heb je met terraform Azure resources aangemaakt, gewijzigd en verwijderd vanaf je lokale machine. Dat is natuurlijk leuk voor testen en ontwikkeling van diensten, maar in een productie omgeving wil je dat de status van terraform op een veilig manier ergens is opgeslagen zodat je teamgenoten er ook toegang toe hebben. Hierdoor wordt samen werken met je teamgenoten eenvoudiger. De beste manier om dit te doen is door ervoor te zorgen dat de terraform state file ergens remote is opgeslagen. Voor deze opdracht maken we dan ook gebruik van een Azure storage account.
+Tot nu toe heb je met terraform Azure resources aangemaakt, gewijzigd en verwijderd vanaf je lokale machine. Dat is leuk voor testen en ontwikkeling van diensten, maar in een productie omgeving wil je dat de status van je infrastructuur op een veilig manier ergens centraal wordt opgeslagen.  Zodat je samen met je teamgenoten aan de infrastructuur kunt werken.
 
-Om onderstaande stappen te kunnen uitvoeren gaan we er vanuit dat je de HashiCorp [azure-get-started](https://developer.hashicorp.com/terraform/tutorials/azure-get-started) tutorial heb uitgevoerd, zoniet doe dit dan eerst!
+De beste manier om dit te doen is door ervoor te zorgen dat de terraform state file ergens remote wordt opgeslagen. Voor deze opdracht maken we dan ook gebruik van een Azure blob storage account.
+
+Om onderstaande stappen te kunnen uitvoeren gaan we er vanuit dat je de HashiCorp [azure-get-started](https://developer.hashicorp.com/terraform/tutorials/azure-get-started) tutorial heb uitgevoerd, zo niet doe dit dan eerst!
 
 ### Stap 1
-Maak met terraform een storage account aan inclusief een blob container, gebruik onderstaande naam conventie:
+Maak met terraform een storage account aan inclusief een blob container, en gebruik daarbij onderstaande naam conventie:
 - storage account naam: storage<cura_inlog_naam>
 - blob container naam: terraform-state-<cura_inlog_naam>
+
+Tip: bekijk de resource examples op de Registry pagina van [hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm/latest) onder documentation! 
+
 
 ### Stap 2
 Als je het storage account heb aangemaakt voeg dan onderstaande remote state configuratie toe aan je main.tf file.
@@ -80,14 +85,17 @@ Do you want to copy existing state to the new backend?
 ```
 Tijdens de reinitialization zal terraform een prompt presenteren waarbij akkoord wordt gevraagd voor het kopieren van je lokale state file naar je remote state. Vul 'yes' in en druk vervolgens op enter om het kopieren van de state file in gang te zetten.
 
+Bekijk eens je blob container in de Azure portal of je daar nu je state file ziet staan.
+
 ### Stap 4
-Nu terrafomr zijn state file heeft gekopieerd naar Azure storage blob container kun je de lokale state file verwijderen.
+Nu terraform zijn state file heeft gekopieerd naar Azure storage blob container kun je de lokale state file verwijderen.
 ```bash
 rm terraform.tfstate
 ```
 Controleer je state file.
 ```bash
 terraform state list
+
 azurerm_resource_group.rg
 azurerm_storage_account.storage
 azurerm_storage_container.storage
@@ -119,4 +127,4 @@ Do you really want to destroy all resources?
   Enter a value: yes
 ```
 
-Dit is het einde van de beginnershandleidingen voor Terraform. Nu kunt je Terraform toepassen om infrastructuur te maken en te beheren.
+Dit is het einde van deze beginnershandleidingen voor Terraform, je zou nu zelf terraform kunnen toepassen om infrastructuur te maken en te beheren.
