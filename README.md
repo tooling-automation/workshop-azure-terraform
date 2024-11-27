@@ -116,7 +116,7 @@ Do you really want to destroy all resources?
   Terraform will destroy all your managed infrastructure, as shown above.
   There is no undo. Only 'yes' will be accepted to confirm.
 
-  Enter a value:
+  Enter a value: yes
 ```
 
 Dit is het einde van de beginnershandleidingen voor Terraform. Nu kunt je Terraform toepassen om infrastructuur te maken en te beheren.
