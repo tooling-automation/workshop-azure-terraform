@@ -35,6 +35,14 @@ Voor deze workshop is er een kant en klare WSL image gemaakt die je kan gebruike
 
 Download: [wsl2-dev-iamge](https://wslimage.blob.core.windows.net/image/wsl2-dev-image.7z)
 
+Pak de image uit en importeer deze in WSL met het volgende commando:
+```powershell
+cd C:\Users\<jouw-gebruikersnaam>\Downloads\wsl2-dev-image
+wsl --import workshop-azure-app . .\wsl2-dev-image.tar
+```
+
+Open een terminal sessie in de workshop-azure-app WSL image.
+
 ## Start tutorial
 Voordat je gaat starten is het goed om te weten dat we de laatste stap van de tutorial 'Store remote state' niet zullen volgen. Hiervoor in de plaats gaan we gebruik maken van een Azure blob storage container, wat hieronder staat beschreven.
 
