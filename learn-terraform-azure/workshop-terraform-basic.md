@@ -1,6 +1,6 @@
 # Azure workshop Terraform basic
 
-## Introduction
+## Introductie
 Het doel van deze workshop is om je een eerste ervaring op te laten doen met het werken met Terraform, we maken hiervoor gebruik van de standaard 'Azure-get-started' tutorial van HashiCorp. Vanuit de tutorial ga je zelfstandig met terraform aan de slag waarbij je azure resources zult gaan aanmaken, wijzigen en verwijderen. 
 
 Voor deze training hebben we een aparte subscription aangemaakt binnen onze Azure Tenant 'KPN B.V.' de gegevens van deze subscription staan hieronder, dit heb je straks nodig voor het aanloggen op azure via de azure cli.
@@ -51,7 +51,7 @@ Je kunt nu starten met de tutorial op de site van hashicorp: [azure-get-started]
 Als je bent aangekomen bij het laatste hoofdstuk over remote state vervolg dan de opdracht hieronder. Veel plezier.
 
 
-## Terraform remote state on Azure blob storage
+## Terraform remote state op Azure blob storage
 Tot nu toe heb je met terraform Azure resources aangemaakt, gewijzigd en verwijderd vanaf je lokale machine. Dat is leuk voor testen en ontwikkeling van diensten, maar in een productie omgeving wil je dat de status van je infrastructuur op een veilig manier ergens centraal wordt opgeslagen.  Zodat je samen met je teamgenoten aan de infrastructuur kunt werken.
 
 De beste manier om dit te doen is door ervoor te zorgen dat de terraform state file ergens remote wordt opgeslagen. Voor deze opdracht maken we dan ook gebruik van een Azure blob storage account.
