@@ -67,7 +67,7 @@ terraform {
 Als je de remote state configuratie heb toegevoegd aan je main.tf file ben je klaar om je lokale state file te verhuizen naar de Azure storage blob container. De migratie start je met het terraform init commando, hierdoor herkent terraform de toegevoegde backend configuratie.
 
 ```bash
-terraform init
+❯ terraform init
 
 Initializing the backend...
 Do you want to copy existing state to the new backend?
