@@ -78,4 +78,45 @@ Do you want to copy existing state to the new backend?
 
   Enter a value: yes
 ```
+Tijdens de reinitialization zal terraform een prompt presenteren waarbij akkoord wordt gevraagd voor het kopieren van je lokale state file naar je remote state. Vul 'yes' in en druk vervolgens op enter om het kopieren van de state file in gang te zetten.
 
+### Stap 4
+Nu terrafomr zijn state file heeft gekopieerd naar Azure storage blob container kun je de lokale state file verwijderen.
+```bash
+rm terraform.tfstate
+```
+Controleer je state file.
+```bash
+terraform state list
+azurerm_resource_group.rg
+azurerm_storage_account.storage
+azurerm_storage_container.storage
+azurerm_virtual_network.vnet
+
+```
+Check of terraform nog steeds goed functioneerd en er geen wijzigingen zijn.
+```bash
+terraform apply
+
+azurerm_resource_group.rg: Refreshing state... [id=/subscriptions/bf9726e0-ad67-4aa2-ac53-147c9465a602/resourceGroups/training-rg-schee805]
+azurerm_virtual_network.vnet: Refreshing state... [id=/subscriptions/bf9726e0-ad67-4aa2-ac53-147c9465a602/resourceGroups/training-rg-schee805/providers/Microsoft.Network/virtualNetworks/training-vnet-schee805]
+azurerm_storage_account.storage: Refreshing state... [id=/subscriptions/bf9726e0-ad67-4aa2-ac53-147c9465a602/resourceGroups/training-rg-schee805/providers/Microsoft.Storage/storageAccounts/storageaccountschee805]
+azurerm_storage_container.storage: Refreshing state... [id=https://storageaccountschee805.blob.core.windows.net/terraform-state-schee805]
+
+No changes. Your infrastructure matches the configuration.
+```
+### Stap 5
+
+Verwijder nu je infrastructuur uit Azure, let op dat je nog wel akkord geeft met een 'yes'.
+
+```bash
+terraform destroy
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value:
+```
+
+Dit is het einde van de beginnershandleidingen voor Terraform. Nu kunt je Terraform toepassen om infrastructuur te maken en te beheren.
