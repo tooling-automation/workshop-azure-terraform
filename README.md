@@ -101,6 +101,6 @@ Providers definiëren een schema voor de resources en data sources die ze behere
 
 ## 4. Workshop
 
-ia onderstaande link kun je starten met de de workshop Azure Terraform basis:
+Via onderstaande link kun je starten met de de workshop Azure Terraform basis:
 
 - [start workshop Terraform basic](learn-terraform-azure/workshop-terraform-basic.md)
